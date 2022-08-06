@@ -13,6 +13,7 @@ const loop= setInterval(()=>{
 
     const pipePosition= pipe.offsetLeft;
     const marioPosition= +window.getComputedStyle(mario).bottom.replace('px','');
+   
 
     if(pipePosition <=120 && pipePosition >0 && marioPosition <80){
         pipe.style.animation='none';
@@ -24,9 +25,16 @@ const loop= setInterval(()=>{
         mario.style.width='75px';
         mario.style.marginLeft='50px'
 
-        clearInterval(loop);
+        clearInterval(loop)
+       
+        let msg= window.confirm('Fim do jogo, deseja continuar?')
 
+        if(msg==true){
+            document.location.reload(true)
+        }else{
+            document.location.reaload(false)
+        }
+ 
     }
-} ,10);
-
+} ,20)
 document.addEventListener('keydown',jump)
